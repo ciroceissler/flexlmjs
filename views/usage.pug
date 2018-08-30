@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1= title
+
+  table.table(class="table-striped")
+    thead
+      tr
+        th feature
+        th # total
+        th # available
+        th # in use
+        th users
+        th usage time
+        th ip address
+      for license in licenseList 
+        tr
+          td= license.feature
+          td= license.total
+          td= license.available
+          td= license.in_use
+          td= license.users
+          td= license.usage_time
+          td= license.ip_address

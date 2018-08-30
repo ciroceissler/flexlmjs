@@ -10,7 +10,7 @@ bash: build
 	docker run -it --rm --entrypoint /bin/bash $(NAME)
 
 run: build
-	docker run -it -p 8080:8080 -d $(NAME)
+	docker run -it -p 3000:3000 -d $(NAME)
 
 test:
 	curl localhost:8080

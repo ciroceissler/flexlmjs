@@ -3,7 +3,7 @@ FROM node:latest
 LABEL author="Ciro Ceissler"
 
 ENV NODE_ENV=development 
-ENV PORT=8080
+ENV PORT=3000
 
 WORKDIR /usr/src/app
 

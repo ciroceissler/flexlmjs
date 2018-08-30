@@ -2,4 +2,19 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+
+  table.table(class="table-striped")
+    thead
+      tr
+        th port@server
+        th description
+        th status
+        th current usage
+        th features and expiration date
+      for license in licenseList 
+        tr
+          td= license.server
+          td= license.description
+          td= license.status
+          td= license.current_usage
+          td= license.features_and_expiration
