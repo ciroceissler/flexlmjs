@@ -1,1 +1,1 @@
-# flexlmjs
+# FLEXlm.js License Management
