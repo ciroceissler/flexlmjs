@@ -1,9 +1,12 @@
 extends layout
 
 block content
-  h1= title
+  h1
+    a(href='/') <
 
-  table.table(class="table-striped")
+  h1 #{title} - List Features and Expiration Date (#{server})
+
+  table#pickle.table.table-hover.table-striped.table-bordered
     thead
       tr
         th feature
@@ -11,9 +14,10 @@ block content
         th # licenses
         th expires
         th vendor
-      for license in licenseList 
+    tbody
+      for license in licenseList
         tr
-          td= license.feature
+          td(scope="row")= license.feature
           td= license.version
           td= license.num_licenses
           td= license.expires

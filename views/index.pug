@@ -1,9 +1,9 @@
 extends layout
 
 block content
-  h1= title
+  h1 #{title}
 
-  table.table(class="table-striped")
+  table#pickle.table.table-hover.table-striped.table-bordered
     thead
       tr
         th port@server
@@ -11,10 +11,13 @@ block content
         th status
         th current usage
         th features and expiration date
+    tbody
       for license in licenseList 
         tr
-          td= license.server
-          td= license.description
-          td= license.status
-          td= license.current_usage
-          td= license.features_and_expiration
+          td(scope="row") #{license.server}
+          td #{license.description}
+          td #{license.status}
+          td 
+            a(href='/usage?server=' + license.server) details
+          td 
+            a(href='/list?server=' + license.server) list

@@ -5,23 +5,29 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   const { exec } = require('child_process');
 
-  exec('cat app.js', (err, stdout, stderr) => {
+  exec('bash exec_flexlm.sh 0', (err, stdout, stderr) => {
     if (err) {
       // node couldn't execute the command
       return;
     }
 
+    var servers = stdout.split("\n");
+
     var licenseList = [];
 
-    var license = {
-      'server'                   : '27645@licenses.lsc.ic.unicamp.br',
-      'description'              : 'lsc server: quarturs + modelsim + xilinx',
-      'status'                   : 'UP',
-      'current_usage'            : 'link',
-      'features_and_expiration'  : 'link'
+    for (i in servers) {
+      features = servers[i].split(";");
+
+      var license = {
+        'server'                   : features[0],
+        'description'              : features[1],
+        'status'                   : features[2]
+      }
+
+      if (features[0]) {
+        licenseList.push(license);
+      }
     }
-    licenseList.push(license);
-    licenseList.push(license);
 
     res.render('index', { title: 'FLEXlm.js', "licenseList": licenseList});
   });

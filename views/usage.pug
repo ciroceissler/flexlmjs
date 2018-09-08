@@ -1,24 +1,37 @@
 extends layout
 
 block content
-  h1= title
+  h1
+    a(href='/') <
 
-  table.table(class="table-striped")
+  h1 #{title} - Current Usage (#{server})
+
+  table#pickle.table.table-hover.table-striped.table-bordered
     thead
       tr
         th feature
         th # total
         th # available
         th # in use
-        th users
-        th usage time
+        th user(s)
+        th usage start time
         th ip address
-      for license in licenseList 
+    tbody
+      for license in licenseList
         tr
-          td= license.feature
+          td(scope="row")= license.feature
           td= license.total
           td= license.available
           td= license.in_use
-          td= license.users
-          td= license.usage_time
-          td= license.ip_address
+          td
+            for user in license.users
+              | #{user.user}
+              br
+          td
+            for user in license.users
+              | #{user.usage_time}
+              br
+          td
+            for user in license.users
+              | #{user.ip_address}
+              br

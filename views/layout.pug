@@ -3,7 +3,19 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+
+    script(src='https://code.jquery.com/jquery-3.3.1.js')
+    script(src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
+
+    script.
+      $(document).ready(function() {
+        $('#pickle').DataTable( {
+          "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+          "pageLength": -1
+        } );
+      });
+
   body
     block content
