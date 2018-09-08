@@ -2,9 +2,9 @@ extends layout
 
 block content
   h1
-    a(href='/') <
-
-  h1 #{title} - Current Usage (#{server})
+    a(href="/")
+      img#back(src='/images/back.png')
+    | #{title} : current usage
 
   table#pickle.table.table-hover.table-striped.table-bordered
     thead

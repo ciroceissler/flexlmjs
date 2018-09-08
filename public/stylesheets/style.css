@@ -3,6 +3,11 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+#back {
+  width: 4%;
+  margin-top: -10px;
+}
+
+#pickle_wrapper {
+  margin-top: 50px;
 }

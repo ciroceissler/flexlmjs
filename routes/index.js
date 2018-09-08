@@ -19,9 +19,9 @@ router.get('/', function(req, res, next) {
       features = servers[i].split(";");
 
       var license = {
-        'server'                   : features[0],
-        'description'              : features[1],
-        'status'                   : features[2]
+        'server'      : features[0],
+        'description' : features[1],
+        'status'      : features[2]
       }
 
       if (features[0]) {

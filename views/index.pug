@@ -1,7 +1,10 @@
 extends layout
 
 block content
-  h1 #{title}
+  h1
+    a(href="/")
+      img#back(src='/images/back.png')
+    | #{title}
 
   table#pickle.table.table-hover.table-striped.table-bordered
     thead
